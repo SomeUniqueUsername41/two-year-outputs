@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Year Number Manipulator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    .output-box {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      font-size: 16px;
+      box-sizing: border-box;
+      background-color: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Year Number Manipulator</h2>
+
+    <label for="select-1">Select:</label>
+    <select id="select-1">
+      <option value="">Select number</option>
+      <option value="174">174</option>
+      <option value="154">154</option>
+      <option value="138">138</option>
+      <option value="136">136</option>
+      <option value="119">119</option>
+      <option value="114">114</option>
+      <option value="98">98</option>
+      <option value="96">96</option>
+      <option value="78">78</option>
+      <option value="76">76</option>
+      <option value="74">74</option>
+      <option value="56">56</option>
+      <option value="54">54</option>
+      <option value="38">38</option>
+      <option value="36">36</option>
+      <option value="18">18</option>
+      <option value="16">16</option>
+    </select>
+    <input type="text" id="output-1" class="output-box" value="" readonly>
+
+    <label for="select-2">Select:</label>
+    <select id="select-2">
+      <option value="">Select number</option>
+      <option value="180">180</option>
+      <option value="178">178</option>
+      <option value="174">174</option>
+      <option value="140">140</option>
+      <option value="118">118</option>
+      <option value="114">114</option>
+      <option value="99">99</option>
+      <option value="98">98</option>
+      <option value="96">96</option>
+      <option value="80">80</option>
+      <option value="78">78</option>
+      <option value="76">76</option>
+      <option value="60">60</option>
+      <option value="58">58</option>
+      <option value="40">40</option>
+      <option value="-104">-104</option>
+      <option value="-124">-124</option>
+      <option value="-140">-140</option>
+      <option value="-142">-142</option>
+      <option value="-182">-182</option>
+      <option value="-202">-202</option>
+      <option value="-224">-224</option>
+    </select>
+    <input type="text" id="output-2" class="output-box" value="" readonly>
+
+    <label for="input">Enter year number:</label>
+    <input type="text" id="input">
+  </div>
+
+  <script>
+    let input = document.getElementById("input");
+    let select1 = document.getElementById("select-1");
+    let select2 = document.getElementById("select-2");
+
+    function updateOutputs() {
+      let inputNum = parseInt(input.value);
+      let value1 = parseInt(select1.value);
+      let value2 = parseInt(select2.value);
+
+      document.getElementById("output-1").value =
+        !isNaN(inputNum) && !isNaN(value1) ? inputNum - value1 : "";
+      document.getElementById("output-2").value =
+        !isNaN(inputNum) && !isNaN(value2) ? inputNum - value2 : "";
+    }
+
+    input.addEventListener("input", updateOutputs);
+    select1.addEventListener("change", updateOutputs);
+    select2.addEventListener("change", updateOutputs);
+  </script>
+</body>
+</html>
